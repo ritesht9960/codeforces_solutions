@@ -1,28 +1,56 @@
-#include<iostream>
-#include<algorithm>
+#include<bits/stdc++.h> 
 #define intt long long
+#define v_ vector<intt>
+#define vi(v,n) v_ v(n); for(auto &x : v) cin >> x;
+#define sz(x) ((intt)(x).size())
+#define ff first
+#define pb push_back
+#define p pair<intt,intt>
+#define vip(v,n) vector<p> v(n); for(auto &x : v) cin >> x.ff >> x.ss;
+#define l list 
+#define ss second
+#define st size_t
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+#define lb(v,x) lower_bound(all(v),x)
+#define ub(v,x) upper_bound(all(v),x)
+#define mx(v,l,r) *max_element(l,r)
+#define mn(v,l,r) *min_element(l,r)
+#define print(v) for(auto &x : v) cout << x << ' '; cout << '\n'
+#define printn(v,n) for(intt i=0;i<n;i++) cout << v[i] << ' '; cout << '\n'
+#define printp(v) for(auto &x : v) cout << x.ff << ' ' << x.ss << '\n'
 using namespace std;
-int main()
+intt lcm(intt x,intt y)
+{
+    return (x/__gcd(x,y))*y;
+}
+void solve()
     {
-        intt t;
-        cin>>t;
-        while(t--)
+        intt n;
+        cin>>n;
+        vi(a,n);
+        intt s,l;
+        for(intt i=0;i<n;i++)
             {
-                intt a[200005],n;
-                cin>>n;
-                for(intt i=0;i<n;i++)
-                    {
-                        cin>>a[i];
-                    }
-                for(intt i=0;i<n;i++)   
-                    {
-                        int count=0;
-                        for(intt j=0;j<n;j++)
-                            {
-
-                            }
-                    }
-
+                s=0,l=0;
+                for(intt j=i+1;j<n;j++) 
+                if(a[j]>a[i]) l++;
+                else if(a[j]<a[i]) s++;
+                a[i]=max(s,l);
             }
-        return 0;
+        print(a);
     }
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    intt T;
+    cin>>T;
+    for(size_t i=0;i<T;i++) solve(); 
+    return 0;
+}
+
+
+
